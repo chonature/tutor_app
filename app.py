@@ -10,7 +10,7 @@ if "API_KEY" in st.secrets:
 else:
     st.sidebar.error("API Key를 찾을 수 없습니다. Secrets 설정을 확인하세요.")
 
-genai.configure(api_key=st.secrets["AIzaSyCbTZ2bX6l9UBmsEzFGumpwnGP4PSOTfMM"])
+genai.configure(api_key=st.secrets["AIzaSyA1E3s_uZgPPhpN1SChbwV_xmVezuD8rao"])
 
 # API 키 설정
 # genai.configure(api_key="AIzaSyA1kkmgVagQrHRbO287kAfC0RJjo1yVsxo")
