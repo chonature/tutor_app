@@ -13,7 +13,7 @@ else:
 genai.configure(api_key=st.secrets["AIzaSyA1kkmgVagQrHRbO287kAfC0RJjo1yVsxo"])
 
 # API 키 설정
-genai.configure(api_key="AIzaSyA1kkmgVagQrHRbO287kAfC0RJjo1yVsxo")
+# genai.configure(api_key="AIzaSyA1kkmgVagQrHRbO287kAfC0RJjo1yVsxo")
 
 # 모델 설정
 model = genai.GenerativeModel('gemini-3.1-pro-preview')
