@@ -1,8 +1,12 @@
 import streamlit as st
 import google.generativeai as genai
 
-import streamlit as st
-import google.generativeai as genai
+# 수정 전 (오류 발생)
+# response = genai.generate_content(full_prompt)
+
+# 수정 후 (올바른 사용법)
+model = genai.GenerativeModel('gemini-1.5-flash') # 1. 모델 객체 생성
+response = model.generate_content(full_prompt)    # 2. 생성된 모델 객체에게 요청
 
 # 키가 제대로 들어오는지 확인하는 코드 (안전하게 첫 글자만 확인)
 if "API_KEY" in st.secrets:
@@ -16,7 +20,7 @@ from google.api_core import exceptions # 예외 처리를 위해 추가
 
 try:
     with st.chat_message("assistant"):
-        response = genai.generate_content(full_prompt)
+        response = model.generate_content(full_prompt)
         st.markdown(response.text)
         st.session_state.messages.append({"role": "assistant", "content": response.text})
 
