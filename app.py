@@ -15,7 +15,7 @@ else:
     st.stop()
 
 # 모델 설정
-model = genai.GenerativeModel('gemini-1.5-flash') 
+model = genai.GenerativeModel('gemini-3.1-pro-preview') 
 
 # 2. 채팅 기록 초기화
 if "messages" not in st.session_state:
