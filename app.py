@@ -5,7 +5,7 @@ from google.api_core import exceptions
 # 1. 기본 설정 및 API 키 연결
 st.set_page_config(page_title="보조 탐정 재미니")
 st.title("보조 탐정 재미니")
-st.write("문제를 입력하면 단계별로 생각의 사슬(CoT)을 통해 설명해 드립니다.")
+st.write("안녕! 우리 같이 단계적으로 문제를 해결해 나가보자! 나에게 질문해보세요 :)")
 
 # Secrets에서 API 키 호출 (안전하게)
 if "API_KEY" in st.secrets:
