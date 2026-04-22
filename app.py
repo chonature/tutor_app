@@ -9,7 +9,19 @@ if "API_KEY" in st.secrets:
     st.sidebar.write("API Key가 확인되었습니다.")
 else:
     st.sidebar.error("API Key를 찾을 수 없습니다. Secrets 설정을 확인하세요.")
+import google.generativeai as genai
+from google.api_core import exceptions # 예외 처리를 위해 추가
 
+# ... 기존 코드 ...
+
+try:
+    with st.chat_message("assistant"):
+        response = model.generate_content(full_prompt)
+        st.markdown(response.text)
+        st.session_state.messages.append({"role": "assistant", "content": response.text})
+
+except exceptions.ResourceExhausted:
+    st.error("앗! 지금 질문이 너무 많아 서버가 바빠요. 잠시만 기다렸다가 다시 시도해 주세요!")
 # 수정 전
 # genai.configure(api_key=st.secrets["AIza...길게..."])
 
