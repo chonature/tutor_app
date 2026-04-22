@@ -16,7 +16,7 @@ from google.api_core import exceptions # 예외 처리를 위해 추가
 
 try:
     with st.chat_message("assistant"):
-        response = model.generate_content(full_prompt)
+        response = genai.generate_content(full_prompt)
         st.markdown(response.text)
         st.session_state.messages.append({"role": "assistant", "content": response.text})
 
