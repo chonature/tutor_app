@@ -17,7 +17,7 @@ else:
 # 2. 모델 설정 (시스템 프롬프트를 모델 초기화 시에 주입합니다)
 system_prompt = "너는 초등학교 데이터 분석 튜터야. 정답을 바로 주지 말고 CoT(생각의 사슬) 방식으로 질문하며 유도해."
 model = genai.GenerativeModel(
-    model_name='gemini-1.5-pro-latest', # 최신 모델명으로 수정
+    model_name='gemini-3.1-pro-preview', # 최신 모델명으로 수정
     system_instruction=system_prompt
 ) 
 
