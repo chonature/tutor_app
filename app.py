@@ -44,4 +44,14 @@ if prompt := st.chat_input("무엇을 도와줄까?"):
     # AI 응답 생성
     with st.chat_message("assistant"):
         try:
-            # 저장해둔 chat_session 객체를
+            # 저장해둔 chat_session 객체를 사용하여 질문 전송 (이전 맥락 자동 유지)
+            response = st.session_state.chat_session.send_message(prompt)
+            
+            # 화면에 출력 및 세션에 저장
+            st.markdown(response.text)
+            st.session_state.messages.append({"role": "assistant", "content": response.text})
+            
+        except exceptions.ResourceExhausted:
+            st.error("앗! 지금 질문이 너무 많아 서버가 바빠요. 잠시만 기다렸다가 다시 시도해 주세요!")
+        except Exception as e:
+            st.error(f"오류가 발생했습니다: {e}")
